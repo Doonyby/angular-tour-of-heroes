@@ -5,11 +5,12 @@ import { Component } from "@angular/core";
   template: `
     <h1>{{title}}</h1>
     <nav>
-      <a routerLink="/dashboard">Dashboard</a>
-      <a routerLink="/heroes">Heroes</a>
+      <a routerLink="/dashboard" routerLinkActive="acitve">Dashboard</a>
+      <a routerLink="/heroes" routerLinkActive="acitve">Heroes</a>
     </nav>
     <router-outlet></router-outlet>
   `,
+  styleUrls: [ './app.component.css' ],
 
 })
 
