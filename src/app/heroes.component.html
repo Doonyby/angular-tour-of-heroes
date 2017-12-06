@@ -8,5 +8,6 @@
   <h2>
     {{selectedHero.name | uppercase}} is my hero
   </h2>
-  <button (click)="gotoDetail()">View Details</button>
+  <button (click)="gotoDetail()" class="btn">View Details</button>
 </div>
+<button (click)="gotoHeroForm()" class="btn createBtn">Create New Hero</button>

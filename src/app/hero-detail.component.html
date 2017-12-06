@@ -5,5 +5,7 @@
         <label>name: </label>
         <input [(ngModel)]="hero.name" placeholder="name"/>
     </div>
+    <div><label>power: </label>{{hero.power}}</div>
+    <div><label>alter ego: </label>{{hero.alterEgo ? hero.alterEgo : hero.name + " doesn't have an alter ego."}}</div>
     <button (click)="goBack()">Back</button>
 </div>

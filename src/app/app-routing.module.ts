@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
 import { HeroesComponent } from './heroes.component';
 import { HeroDetailComponent } from './hero-detail.component';
+import { HeroFormComponent } from './hero-form/hero-form.component';
 
 const routes: Routes = [
     {
@@ -21,8 +22,12 @@ const routes: Routes = [
     },
     {
         path: 'detail/:id',
-        component:HeroDetailComponent,
-    }
+        component: HeroDetailComponent,
+    },
+    {
+        path: 'heroForm',
+        component: HeroFormComponent,
+    },
 ];
 
 @NgModule({
