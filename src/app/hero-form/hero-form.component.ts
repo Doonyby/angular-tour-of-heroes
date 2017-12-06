@@ -2,6 +2,7 @@ import { Component, OnInit, Output } from '@angular/core';
 import { Hero } from '../hero';
 import { HEROES } from '../mock-heroes';
 import { Router } from '@angular/router';
+import * as _ from 'lodash';
 
 
 @Component({
@@ -11,22 +12,41 @@ import { Router } from '@angular/router';
 })
 export class HeroFormComponent implements OnInit{
   
-  ngOnInit(): void {
-    console.log(HEROES);
-  }
-
-
   constructor( private router: Router, ) { }
-
+  
   powers = ['Really Smart', 'Super Flexible', 'Super Hot', 'Weather Changer'];
-  model = new Hero(HEROES.length + 1, 'Mr Big', 'Super Flexible', 'Tiny Dancer'); 
+  uniqueId: number = 0;
   
 
   submitted = false;
+  
+  ngOnInit(): void {
+    this.getCurrentId();
+  }
 
-  onSubmit() { 
+  private getCurrentId() {
+    _.find(HEROES, (o) => {
+        if (o.id > this.uniqueId) {
+            this.uniqueId = o.id;
+        }
+    });
+  }
+
+  onSubmit(name: string, alterEgo: string, power: string) {  
+    interface heroObj { 
+                    id: number,
+                    name: string,
+                    alterEgo: string,
+                    power: string
+                  }
     this.submitted = true;
-    HEROES.push(this.model);
+    let currentHeroObj = {
+      id : this.uniqueId + 1,
+      name : name,
+      alterEgo : alterEgo,
+      power : power,
+    }
+    HEROES.push(currentHeroObj);
     this.router.navigate(['/heroes']);
   }
 
