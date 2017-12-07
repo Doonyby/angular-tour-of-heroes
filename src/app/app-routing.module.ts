@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard.component';
 import { HeroesComponent } from './heroes.component';
 import { HeroDetailComponent } from './hero-detail.component';
 import { HeroFormComponent } from './hero-form/hero-form.component';
+import { PracticeFormComponent } from './practice-form/practice-form.component';
 
 const routes: Routes = [
     {
@@ -28,6 +29,10 @@ const routes: Routes = [
         path: 'heroForm',
         component: HeroFormComponent,
     },
+    {
+        path: 'practiceForm',
+        component: PracticeFormComponent,
+    }
 ];
 
 @NgModule({
